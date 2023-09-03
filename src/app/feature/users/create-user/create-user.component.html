@@ -2,3 +2,20 @@
   Recuerde conservar los id, no deben ser modificados
   ids = user-create__name, user-create__name-error, user-create__job, user-create__job-error, user-create__btn-create
 -->
+<p>Nuevo usuario</p>
+<div class="card">
+  <section class="card-text">
+   <div class="layout-column justify-content-left align-items-center">
+      <h3 class="mt-0 mb-0">Nuevo usuario</h3>
+      <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()" class="layout-column justify-content-left">
+        <app-input type="text" controlName="name" label="Nombre completo" [parentForm]="createUserForm" idInput="user-create__name" [mensajesValidacion]="mensajesValidacion">
+          <input type="text" class="white large" formControlName="name" id="user-create__name">
+        </app-input>
+        <app-input type="password" controlName="job" label="Trabajo" [parentForm]="createUserForm" idInput="user-create__job" [mensajesValidacion]="mensajesValidacion">
+          <input type="text" class="white large" formControlName="job" id="user-create__job">
+        </app-input>
+        <button type="submit" class="secondary flat" [disabled]="createUserForm.invalid" id="user-create__btn-create">Crear</button>
+      </form>
+   </div>
+  </section>
+</div>
