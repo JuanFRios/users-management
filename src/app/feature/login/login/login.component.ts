@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '@feature/login/shared/services/login/login.service'
 import { MENSAJES_VALIDACION } from './utils';
-import { LoginService } from '../shared/services/login/login.service';
 import { StorageService } from '@core/services/storage.service';
 
 @Component({
@@ -20,13 +20,14 @@ export class LoginComponent implements OnInit{
     private loginService: LoginService,
     private storageService: StorageService
   ) {
+    
   }
   
   ngOnInit(): void {
-    if (this.storageService.existsItem('token')) {
-      this.redirectUsers();
-    }
-   this.buildForm();
+      this.buildForm();
+      if (this.storageService.getItem('token')) {
+        this.redirectUsers();
+      }
   }
 
   buildForm(): void {
@@ -49,17 +50,6 @@ export class LoginComponent implements OnInit{
       this.storageService.setItem('token', res.token);
       this.redirectUsers();
     })
-  }
-
-  getInputType(inputName: string): string {
-    const input = this.loginForm.get(inputName);
-    return input && input.get('type').value;
-  }
-
-  togglePasswordVisibility() {
-    const input = this.loginForm.get('password');
-    const type = input.get('type').value;
-    input.get('type').setValue(type === 'password' ? 'text' : 'password');
   }
 
 }

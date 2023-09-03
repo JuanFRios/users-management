@@ -4,7 +4,6 @@ import { LoginRoutingModule } from './login-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginService } from './shared/services/login/login.service';
 
 @NgModule({
     declarations: [
