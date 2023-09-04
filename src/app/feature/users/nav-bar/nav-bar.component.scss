@@ -1,0 +1,74 @@
+.header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+  
+    &__layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap; 
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+  
+    &__logo-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      flex-grow: 1;
+    }
+  
+    &__menu-link,
+    &__actions-link {
+      text-decoration: none;
+      cursor: pointer;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      margin: 5px 0;
+      border-bottom: 2px solid transparent;
+  
+      &:hover {
+        border-bottom: 2px solid #fff;
+      }
+    }
+  
+    &__menu-icon,
+    &__actions-icon {
+      font-size: 18px;
+    }
+  
+    @media screen and (min-width: 767px) {
+      /* Estilos específicos para dispositivos grande con ancho de pantalla mayor o igual a 767px */
+      .header {
+        padding: 10px 20px;
+      }
+  
+      &__layout {
+        flex-direction: row;
+      }
+  
+      &__menu-link,
+      &__actions-link {
+        margin: 5px 10px; 
+      }
+  
+      &__menu-icon,
+      &__actions-icon {
+        font-size: 20px;
+        margin-right: 5px;
+      }
+    }
+  }
+  
+  
+  

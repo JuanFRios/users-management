@@ -1,0 +1,45 @@
+.table {
+  padding: 0;
+}
+
+.layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+th {
+  font-size: 12px;
+}
+
+/* Estilos para la imagen del avatar */
+img[id^='user-list__table-item-'] {
+  border-radius: 50%;
+  overflow: hidden;
+  height: auto;
+  width: 50px;
+  padding: 0;
+}
+
+td[id^='user-list__table-item-'] {
+  word-break: break-all;
+}
+
+// Dispositivos grandes
+@media (min-width: 768px) {
+  .table {
+    padding: 0 50px;
+  }
+  th {
+    font-size: 16px;
+  }
+
+  td {
+    font-size: 16px;
+  }
+  img[id^='user-list__table-item-'] {
+    width: 100px;
+    padding: 10px 0;
+  }
+}

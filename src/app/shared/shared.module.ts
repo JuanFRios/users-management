@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FilterUserByNamePipe } from '@shared/pipes/filter-user-by-name/filter-user-by-name.pipe';
 import { InputComponent } from '@shared/components/input/input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationMessageComponent } from './components/confirmation-message/confirmation-message.component';
 
 
 @NgModule({
   declarations: [
     InputComponent,
-    FilterUserByNamePipe
+    FilterUserByNamePipe,
+    ConfirmationMessageComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     InputComponent,
-    FilterUserByNamePipe
+    FilterUserByNamePipe,
+    ConfirmationMessageComponent
   ]
 })
 export class SharedModule {

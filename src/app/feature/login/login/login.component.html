@@ -2,20 +2,22 @@
   Recuerde conservar los id, no deben ser modificados
   ids = login__email, login__password, login__password-error, login__email-error, login__btn-login
 -->
-<div class="card">
-  <section class="card-text">
-   <div class="layout-column justify-content-left align-items-center">
-      <h3 class="mt-0 mb-0">Login</h3>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="layout-column justify-content-left">
-        <app-input type="text" controlName="email" label="Correo Electrónico" [parentForm]="loginForm" idInput="login__email" [mensajesValidacion]="mensajesValidacion">
-          <input type="text" class="white large" formControlName="email" id="login__email">
-        </app-input>
-      
-        <app-input type="password" controlName="password" label="Contraseña" [parentForm]="loginForm" idInput="login__password" [mensajesValidacion]="mensajesValidacion">
-          <input type="password" class="white large" formControlName="password" id="login__password">
-        </app-input>
-        <button type="submit" class="secondary flat"  id="login__btn-login">Login</button>
-      </form>
-   </div>
-  </section>
+<div class="layout-column fill-height align-items-center justify-content-center">
+  <div class="w-25 card">
+    <section class="card-text">
+     <div class="layout-column justify-content-left align-items-center">
+        <h3 class="mt-0 mb-0">Login</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="layout-column justify-content-left">
+          <app-input type="text" controlName="email" label="Correo Electrónico" [parentForm]="loginForm" idInput="login__email" [mensajesValidacion]="mensajesValidacion">
+            <input type="text" class="white large" formControlName="email" id="login__email">
+          </app-input>
+        
+          <app-input type="password" controlName="password" label="Contraseña" [parentForm]="loginForm" idInput="login__password" [mensajesValidacion]="mensajesValidacion">
+            <input type="password" class="white large" formControlName="password" id="login__password">
+          </app-input>
+          <button type="submit" class="secondary flat"  id="login__btn-login">Login</button>
+        </form>
+     </div>
+    </section>
+  </div>
 </div>

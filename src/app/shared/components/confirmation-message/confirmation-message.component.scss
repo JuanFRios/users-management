@@ -1,0 +1,36 @@
+.confirmation-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4caf50; // Color de fondo verde
+    color: white;
+    padding: 0 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  
+    &__icon {
+      font-size: 24px;
+      margin: 0 10px;
+    }
+  
+    &__text {
+      font-size: 14px;
+  
+      @media (min-width: 768px) {
+        font-size: 16px;
+      }
+    }
+  
+    &__close-button {
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+  
+      &:hover {
+        color: #f44336;
+      }
+    }
+  }

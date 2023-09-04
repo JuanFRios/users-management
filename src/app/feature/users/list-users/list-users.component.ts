@@ -11,22 +11,27 @@ import { IuserResponse } from '../models/user.model';
 export class ListUsersComponent implements OnInit {
   public users: IuserResponse[] = [];
   public filter: string = '';
+  public confirmationMessages: string[] = [];
 
   constructor(private usersService: UsersService,) {
   }
 
   ngOnInit(): void {
     this.usersService.getUsers().then((res) => {
-      console.log(res);
       this.users = res.data;
     })
   }
 
-  public deleteUser(index: number): void {
+  public deleteUser(index: number, userName: string ): void {
     this.usersService.deleteUserForIndex(index).then((res) => {
-      console.log(res);
       this.users= this.users.filter((user) => user.id !== index);
+      this.confirmationMessages.push('El usuario ' +userName+' ha sido eliminado con éxito.');
     })
+  }
+
+  closeConfirmationMessage(index: number): void {
+    // Elimina el mensaje de confirmación del array por su índice
+    this.confirmationMessages.splice(index, 1);
   }
 
 }

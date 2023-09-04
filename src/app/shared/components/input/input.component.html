@@ -1,10 +1,9 @@
-<section class="layout-row align-items-center justify-content-between">
+<section class="layout-column align-items-left justify-content-between">
     <label [for]="controlName">{{ label }}</label>
-    
     <ng-content></ng-content>
     <div *ngIf="control.invalid && (control.dirty || control.touched)" class="red">
         <div *ngFor="let validacion of mensajesValidacion[controlName]">
-            <div *ngIf="control.hasError(validacion.tipo)" [id]="idInput+'-error'" >{{validacion.mensaje}}</div>
+            <div *ngIf="control.hasError(validacion.tipo)" [id]="idInput+'-error'" class="form-hint error-text">{{validacion.mensaje}}</div>
         </div>
     </div>
 </section>
