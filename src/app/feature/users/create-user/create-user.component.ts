@@ -44,7 +44,6 @@ export class CreateUserComponent implements OnInit {
 
   onSubmit(): void {
     this.usersService.createUser(this.createUserForm.value).then((res) => {
-      console.log(res);
       this.redirectToListUsers();
     })
   }

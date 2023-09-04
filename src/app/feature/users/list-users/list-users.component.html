@@ -1,19 +1,18 @@
-<div class="layout">
-  <h3 class="layout-row justify-content-left">List Users</h3>
+  <h3 class="layout-row justify-content-left">Users</h3>
   <app-confirmation-message *ngFor="let message of confirmationMessages; let i = index" [confirmationMessage]="message" [onClose]="closeConfirmationMessage.bind(this)"></app-confirmation-message>
  
   <div class="layout-row justify-content-end my-10">
     <section class="layout-row align-items-center">
       <i class="material-icons">search</i>
-      <input type="text" class="white large" id="user-list__filter" placeholder="Filtrar por nombre" [(ngModel)]="filter">
+      <input type="text" class="white large" id="user-list__filter" placeholder="Filter by name" [(ngModel)]="filter">
     </section>
   </div>
   <table id="user-list__table">
     <thead>
       <tr>
         <th>Avatar</th>
-        <th>Nombre</th>
-        <th>Correo</th>
+        <th>Name</th>
+        <th>Email</th>
         <th></th>
       </tr>
     </thead>
@@ -28,4 +27,3 @@
       </tr>
     </tbody>
   </table>
-</div>

@@ -1,16 +1,16 @@
-<h3 class="mt-0 mb-0">Nuevo usuario</h3>
+<h3 class="layout-row justify-content-left">New User</h3>
 <div class="layout-column align-items-center justify-content-center">
-  <div class="card w-25">
+  <div class="app-card card">
     <section class="card-text">
      <div class="layout-column justify-content-left align-items-center">
-        <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()" class="layout-column justify-content-left">
-          <app-input controlName="name" label="Nombre completo" [parentForm]="createUserForm" idInput="user-create__name" [mensajesValidacion]="mensajesValidacion">
+        <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()" class="app-card__form">
+          <app-input controlName="name" label="Full Name" [parentForm]="createUserForm" idInput="user-create__name" [mensajesValidacion]="mensajesValidacion">
             <input type="text" class="white large" formControlName="name" id="user-create__name">
           </app-input>
-          <app-input type="password" controlName="job" label="Trabajo" [parentForm]="createUserForm" idInput="user-create__job" [mensajesValidacion]="mensajesValidacion">
+          <app-input type="password" controlName="job" label="Job" [parentForm]="createUserForm" idInput="user-create__job" [mensajesValidacion]="mensajesValidacion">
             <input class="white large" formControlName="job" id="user-create__job">
           </app-input>
-          <button type="submit" class="secondary flat" [disabled]="createUserForm.invalid" id="user-create__btn-create">Crear</button>
+          <button type="submit" class="secondary flat w-100" [disabled]="createUserForm.invalid" id="user-create__btn-create">Create</button>
         </form>
      </div>
     </section>

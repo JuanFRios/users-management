@@ -1,6 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
-@import "node_modules/h8k-design/lib/index.scss";
+@import 'node_modules/h8k-design/lib/index.scss';
 
 :root {
+}
 
+app-input {
+  width: 100%;
+}
+
+.app-card {
+  width: 90%;
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    padding: 15px;
+    width: 100%;
+    gap: 20px;
+  }
+}
+
+// Dispositivos grandes
+@media (min-width: 768px) {
+  .app-card {
+    max-width: 400px;
+    padding: 30px;
+
+    &__title {
+      font-size: 32px;
+    }
+  }
 }

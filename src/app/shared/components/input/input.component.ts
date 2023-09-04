@@ -14,7 +14,6 @@ export class InputComponent implements  OnInit{
   @Input() idInput: string;
 
   ngOnInit(): void {
-    console.log(this.parentForm);
   }
 
   get control() {

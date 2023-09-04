@@ -1,17 +1,17 @@
-<div class="layout-column fill-height align-items-center justify-content-center">
-  <div class="w-25 card">
+<div class="layout-column fill-height align-items-center justify-content-center p-30">
+  <div class="app-card card">
     <section class="card-text">
      <div class="layout-column justify-content-left align-items-center">
-        <h3 class="mt-0 mb-0">Login</h3>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="layout-column justify-content-left">
-          <app-input controlName="email" label="Correo Electrónico" [parentForm]="loginForm" idInput="login__email" [mensajesValidacion]="mensajesValidacion">
+        <h3 class="app-card__title">Login</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="app-card__form">
+          <app-input controlName="email" label="E-mail" [parentForm]="loginForm" idInput="login__email" [mensajesValidacion]="mensajesValidacion">
             <input type="text" class="white large" formControlName="email" id="login__email">
           </app-input>
         
-          <app-input controlName="password" label="Contraseña" [parentForm]="loginForm" idInput="login__password" [mensajesValidacion]="mensajesValidacion">
+          <app-input controlName="password" label="Password" [parentForm]="loginForm" idInput="login__password" [mensajesValidacion]="mensajesValidacion">
             <input type="password" class="white large" formControlName="password" id="login__password">
           </app-input>
-          <button type="submit" class="secondary flat"  id="login__btn-login">Login</button>
+          <button type="submit" class="secondary flat w-100"  id="login__btn-login">Login</button>
         </form>
      </div>
     </section>
