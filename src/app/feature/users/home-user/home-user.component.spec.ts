@@ -15,15 +15,12 @@ describe('HomeUserComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create the component', () => {
+  it('debería crear el componente', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize the component', () => {
-    // Simulate ngOnInit call
+  it('debería inicializar el componente', () => {
     fixture.detectChanges();
 
-    // Add your specific initialization checks if needed
-    // For example, you can check if certain elements or properties are initialized correctly.
   });
 });

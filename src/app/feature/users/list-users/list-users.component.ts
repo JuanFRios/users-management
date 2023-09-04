@@ -30,7 +30,6 @@ export class ListUsersComponent implements OnInit {
   }
 
   closeConfirmationMessage(index: number): void {
-    // Elimina el mensaje de confirmación del array por su índice
     this.confirmationMessages.splice(index, 1);
   }
 

@@ -4,73 +4,96 @@ import { StorageService } from './storage.service';
 describe('StorageService', () => {
   let service: StorageService;
 
+  // Arrange
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(StorageService);
     localStorage.clear();
   });
 
-  it('should be created', () => {
+  it('debería crearse', () => {
+    // Act y Assert
     expect(service).toBeTruthy();
   });
 
-  it('should set and get an item from local storage', () => {
+  it('debería establecer y obtener un elemento del almacenamiento local', () => {
+    // Arrange
     const key = 'testKey';
     const value = 'testValue';
 
+    // Act
     service.setItem(key, value);
     const retrievedValue = service.getItem(key);
 
+    // Assert
     expect(retrievedValue).toEqual(value);
   });
 
-  it('should return undefined for a non-existent item', () => {
+  it('debería devolver undefined para un elemento que no existe', () => {
+    // Arrange
     const key = 'nonExistentKey';
 
+    // Act
     const retrievedValue = service.getItem(key);
 
+    // Assert
     expect(retrievedValue).toBeUndefined();
   });
 
-  it('should clear local storage', () => {
+  it('debería limpiar el almacenamiento local', () => {
+    // Arrange
     const key = 'testKey';
     const value = 'testValue';
 
+    // Act
     service.setItem(key, value);
     service.clear();
 
+    // Assert
     expect(service.getItem(key)).toBeUndefined();
   });
 
-  it('should remove an item from local storage', () => {
+  it('debería eliminar un elemento del almacenamiento local', () => {
+    // Arrange
     const key = 'testKey';
     const value = 'testValue';
 
+    // Act
     service.setItem(key, value);
     service.removeItem(key);
 
+    // Assert
     expect(service.getItem(key)).toBeUndefined();
   });
 
-  it('should try to remove an item from local storage which does not exist', () => {
+  it('debería intentar eliminar un elemento del almacenamiento local que no existe', () => {
+    // Arrange
     const key = 'testKey';
+
+    // Act
     service.removeItem(key);
 
+    // Assert
     expect(service.getItem(key)).toBeUndefined();
   });
 
-  it('should return true for an existing item', () => {
+  it('debería devolver true para un elemento existente', () => {
+    // Arrange
     const key = 'testKey';
     const value = 'testValue';
 
+    // Act
     service.setItem(key, value);
 
+    // Assert
     expect(service.existsItem(key)).toBeTrue();
   });
 
-  it('should return false for a non-existent item', () => {
+  it('debería devolver false para un elemento que no existe', () => {
+    // Arrange
     const key = 'nonExistentKey';
 
+    // Assert
     expect(service.existsItem(key)).toBeFalse();
   });
 });

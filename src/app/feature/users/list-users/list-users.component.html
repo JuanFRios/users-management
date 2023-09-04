@@ -1,8 +1,3 @@
-<!--
-  Recuerde conservar los id, no deben ser modificados
-  ids = user-list__filter, user-list__table, user-list__table-item-[index], user-list__table-item-[index]-avatar, user-list__table-item-[index]-first_name, user-list__table-item-[index]-email, user-list__table-item-[index]-btn-delete
-  Remplazar [index] por el valor ejemplo "user-list__table-item-0"
--->
 <div class="layout">
   <h3 class="layout-row justify-content-left">List Users</h3>
   <app-confirmation-message *ngFor="let message of confirmationMessages; let i = index" [confirmationMessage]="message" [onClose]="closeConfirmationMessage.bind(this)"></app-confirmation-message>

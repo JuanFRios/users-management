@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { StorageService } from '@core/services/storage.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,6 +11,7 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
+    private storageService: StorageService
   ) {
   }
 
@@ -21,6 +23,6 @@ export class NavBarComponent implements OnInit {
    * */
   public logout(): void {
     this.router.navigateByUrl('/login');
-    localStorage.removeItem('token');
+    this.storageService.removeItem('token');
   }
 }

@@ -2,7 +2,8 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { UsersService } from './users.service';
 import { environment } from '@environments/environment';
-import { IcreateUserRequest, IlistUsersResponse } from '@feature/users/models/user.model';
+import { IcreateUserRequest } from '@feature/users/models/user.model';
+import { apiUsersResponseMock } from '@feature/users/models/user.mock';
 
 describe('UsersService', () => {
   let service: UsersService;
@@ -19,61 +20,55 @@ describe('UsersService', () => {
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 
-  it('should be created', () => {
+  it('debería ser creado', () => {
+    // Act y Assert
     expect(service).toBeTruthy();
   });
 
-  it('should fetch a list of users', () => {
-    const usersResponse: IlistUsersResponse = {
-      data: [
-        {
-          id: 1,
-          first_name: 'Dane',
-          last_name: 'Bayer',
-          email: '',
-          avatar: '',
-        }],
-      page: 1,
-      per_page: 1,
-      total: 1,
-      total_pages: 1,
-    };
-
+  it('debería obtener una lista de usuarios', () => {
+    // Act
     service.getUsers().then((response) => {
-      expect(response).toEqual(usersResponse);
+      // Assert
+      expect(response).toEqual(apiUsersResponseMock);
     });
 
     const req = httpTestingController.expectOne(`${apiUrl}/users`);
+
+    // Assert
     expect(req.request.method).toBe('GET');
 
-    req.flush(usersResponse);
+    req.flush(apiUsersResponseMock);
   });
 
-  it('should create a new user', () => {
+  it('debería crear un nuevo usuario', () => {
+    // Arrange
     const newUser: IcreateUserRequest = {
-      name: 'Dane Bayer',
+      name: 'Juan Rios',
       job: 'Developer',
     };
 
-    service.createUser(newUser).then(() => {
-      // You can add additional expectations if needed
-    });
+    // Act
+    service.createUser(newUser)
 
     const req = httpTestingController.expectOne(`${apiUrl}/users`);
+
+    // Assert
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toEqual(newUser);
 
     req.flush({});
   });
 
-  it('should delete a user by index', () => {
+  it('debería eliminar un usuario por índice', () => {
+    // Arrange
     const index = 1;
 
-    service.deleteUserForIndex(index).then(() => {
-      // You can add additional expectations if needed
-    });
+    // Act
+    service.deleteUserForIndex(index)
 
     const req = httpTestingController.expectOne(`${apiUrl}/users/${index}`);
+
+    // Assert
     expect(req.request.method).toBe('DELETE');
 
     req.flush({});
@@ -83,3 +78,4 @@ describe('UsersService', () => {
     httpTestingController.verify();
   });
 });
+

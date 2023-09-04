@@ -1,126 +1,49 @@
+import { usersMock } from '@feature/users/models/user.mock';
 import { FilterUserByNamePipe } from './filter-user-by-name.pipe';
 
 describe('FilterUserByNamePipe', () => {
   let pipe: FilterUserByNamePipe;
 
   beforeEach(() => {
+    // Arrange
     pipe = new FilterUserByNamePipe();
   });
 
-  it('should create an instance', () => {
+  it('debería crear una instancia del filtro', () => {
+    // Act
+    // Assert
     expect(pipe).toBeTruthy();
   });
 
-  it('should return the original array when no filter is provided', () => {
-    const users = [
-      { first_name: 'John',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 1,
+  it('debería devolver el arreglo original cuando no se proporciona un filtro', () => {
+    // Act
+    const result = pipe.transform(usersMock, '');
 
-     },
-      { first_name: 'Jane',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 2, },
-      { first_name: 'Doe',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 3, },
-    ];
-    const result = pipe.transform(users, '');
-
-    expect(result).toEqual(users);
+    // Assert
+    expect(result).toEqual(usersMock);
   });
 
-  it('should return the original array when the filter has less than 3 characters', () => {
-    const users = [
-      { first_name: 'John',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 1,
+  it('debería devolver el arreglo original cuando el filtro tiene menos de 3 caracteres', () => {
+    // Act
+    const result = pipe.transform(usersMock, 'a');
 
-     },
-      { first_name: 'Jane',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 2, },
-      { first_name: 'Doe',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 3, },
-    ];
-    const result = pipe.transform(users, 'a');
-
-    expect(result).toEqual(users);
+    // Assert
+    expect(result).toEqual(usersMock);
   });
 
-  it('should filter the array by first_name when a valid filter is provided', () => {
-    const users = [
-      { first_name: 'John',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 1,
+  it('debería filtrar el arreglo por first_name cuando se proporciona un filtro válido', () => {
+    // Act
+    const result = pipe.transform(usersMock, 'geo');
 
-     },
-      { first_name: 'Jane',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 2, },
-      { first_name: 'Doe',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 3, },
-    ];
-    const result = pipe.transform(users, 'joh');
-
-    expect(result).toEqual([{ first_name: 'John',
-    last_name: 'Doe',
-    email: '',
-    avatar: '',
-    id: 1,
-
-   },]);
+    // Assert
+    expect(result).toEqual([usersMock[0]]);
   });
 
-  it('should handle filter with different letter case', () => {
-    const users = [
-      { first_name: 'John',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 1,
+  it('debería manejar el filtro con letras en mayúscula y minúscula', () => {
+    // Act
+    const result = pipe.transform(usersMock, 'GEO');
 
-     },
-      { first_name: 'Jane',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 2, },
-      { first_name: 'Doe',
-      last_name: 'Doe',
-      email: '',
-      avatar: '',
-      id: 3, },
-    ];
-    const result = pipe.transform(users, 'JOH');
-
-    expect(result).toEqual([{ first_name: 'John',
-    last_name: 'Doe',
-    email: '',
-    avatar: '',
-    id: 1,
-
-   },]);
+    // Assert
+    expect(result).toEqual([usersMock[0]]);
   });
 });
-
