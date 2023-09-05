@@ -45,6 +45,7 @@ export class CreateUserComponent implements OnInit {
   onSubmit(): void {
     this.usersService.createUser(this.createUserForm.value).then((res) => {
       this.redirectToListUsers();
+      window.alert('Usuario ' +this.createUserForm.value.name+' creado con éxito');
     })
   }
 }

@@ -1,38 +1,28 @@
-# Customer List
+# Administracion de usuarios
 
-## Environment 
+## Ambiente 
 - Angular CLI Version: 10.0.4
 - Angular Core Version: 10.0.4
 - Node Version: 12(LTS)
 - Default Port: 8000
 
-## Application Demo:
+## Demo:
 
-![](https://hrcdn.net/s3_pub/istreet-assets/HnPUXnW8Mhml5W2AHvkNKQ/customer-list.gif)
+https://users-management-psi.vercel.app/users/list
 
-## Functionality Requirements
+## Especificaciones de solución
+La solución propuesta se basa en la arquitectura más popular de Angular: 
+- **Core:** Contiene elementos importantes para el correcto funcionamiento de toda la app: 
+    - *token-interceptor:*  Para incluir un token a las peticiones http.
+    - *token-guard:* Para restringir acceso a rutas.
+    - *storage-service:* Para administrar items del storage
+- **Shared**: Contiene elementos que se comparten entre diferentes componentes o modulos del aplicativo en este caso se tienen.
+    - *Input-component*: El cual es una abstracción de un input en un formulario con validaciones, permitiendo crear formularios de forma mas sencilla, y manteniendolo flexible mediante la proyeccion de contenido con <ng-content>
+    - *Confirmation-message-component*: Componente que sirve para mostrar mensajes de confirmación al usario, y que puede ser extendido para alertas o advertencias, segun las necesidades.
+    - *Filter-user-by-name*: Pipe que sirve para filtrar una lista de usuarios que tengan cierta cadena de texto en su nombre.
+- **Feature:** Contiene dos modulos que se cargan de forma perezosa segun la ruta activa, esto con el fin de mejorar el rendimiento de la aplicacion, y permitiendo la escalabilidad.
 
-The component must have the following functionalities:
-
-- The input should initially be empty.
-
-- If no value is entered, clicking on the `Add Customer` button should not do anything.
-
-- If a value is present, clicking on the `Add Customer` button should add the input value to the list below. For this, add `<li>{input}</li>` to the `<ul data-test-id="customer-list">` element.
-
-- After adding the value to the list, clear the value of the input box.
-
-- Please note that the customer list `<ul>` element should only be rendered if it has at least one customer added (i.e., at least one `<li>` child). So initially, when the app is mounted, the `<ul>` element should not be rendered since no customers have been added.
-
-- All the values added by the button should be rendered in the list below.
-
-## Testing Requirements
-
-- The input should have the data-test-id attribute `app-input`.
-- The button should have the data-test-id attribute `submit-button`.
-- The customer list `<ul>` should have the data-test-id attribute `customer-list`.
-- Elements in the list should have the data-test-id attribute as `list-item0`, `list-item1`, `list-item2`, `list-item3`, and so on.
-
+Con el objetivo de mostrar competencias en SCSS se aplicaron estilos a algunos componentes usando metodología BEM y la tecnica de 'mobile first'. Sin embargo, y para no desobedecer a los requerimientos de la prueba, se hizo uso de la libreria h8k-design para otros componentes.
 ## Project Specifications
 
 **Read Only Files**
@@ -52,3 +42,4 @@ bash bin/env_setup && . $HOME/.nvm/nvm.sh && npm install
 ```bash
 bash bin/env_setup && . $HOME/.nvm/nvm.sh && npm test
 ```
+
